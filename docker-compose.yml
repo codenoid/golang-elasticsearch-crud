@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  elasticsearchNode:
+    image: elasticsearch:7.14.1
+    container_name: elasticsearchNode
+    environment:
+      discovery.type: 'single-node'
+      ELASTIC_PASSWORD: 'esPwd123'
+      cluster.name: 'dockercluster'
+      node.name: 'node-master'
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: '-Xms512m -Xmx512m'
+      xpack.security.enabled: 'true'
+    ports:
+      - 9200:9200
+      - 9300:9300
