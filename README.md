@@ -12,6 +12,8 @@ sudo docker-compose up -d
 
 ## CRUD Example
 
+You can directly run `main.go` file, use `go run .`
+
 ### Go Module Installation
 
 `go get github.com/olivere/elastic/v7`
@@ -55,7 +57,7 @@ _, err = elasticClient1.Index().
 student["last_attend"] = time.Now().Unix()
 
 // Update Document by Id
-elasticClient1.Update().
+_, err = elasticClient1.Update().
     Index("student").
     Id(studentID).
     Doc(student).
